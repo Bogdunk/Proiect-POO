@@ -2,23 +2,25 @@
 #define CLASE_CHILD_H
 #include "toy.h"
 #include "birthday_gift.h"
-#include "sacul_lui_Mos_Craciun.h"
+#include "Mos_Craciun.h"
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-class child{
+class child : public toy{   ///mostenire
     string child_name;
     int age;
+    bool a_fost_cuminte;
+    vector<toy>lista_dorinte;
 public:
     child();
-    void get_new_child( string name, int ages );
-    //void show_new_toy();
+    void get_new_child( string name, int ages, bool cuminte );
     void show_child_and_toy( toy& jucarie );
+    int get_a_fost_cuminte();
+    void get_name();
     birthday_gift cadou;
-    sacul_lui_Mos_Craciun primeste_de_Craciun_cadou;
+    Mos_Craciun primeste_de_Craciun_cadou;
     friend class toy;
 };
-
 #endif //CLASE_CHILD_H
