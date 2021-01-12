@@ -12,10 +12,9 @@ class child : public toy{   ///mostenire
     string child_name;
     int age;
     bool a_fost_cuminte;
-    vector<toy>lista_dorinte;
 public:
     child();
-    void get_new_child( string name, int ages, bool cuminte );
+    void set_new_child( string name, int ages, bool cuminte );
     void show_child_and_toy( toy& jucarie );
     int get_a_fost_cuminte();
     void get_name();
