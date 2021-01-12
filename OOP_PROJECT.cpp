@@ -4,6 +4,34 @@
 
 using namespace std;
 
+///mostenire pt tema 2
+class copilbun: public child{
+    string dorinta; ///in string memoreaza numele jucariei pe care si-o doreste
+public:
+    copilbun(){
+        this->dorinta = "-";
+    }
+    void set_dorinta( string dor ){
+        this->dorinta = dor;
+    }
+    void get_dorinta(){
+        cout << dorinta;
+    }
+};
+
+void mostenire( copilbun Matei  ){
+
+    Matei.get_name();    cout << " a fost cuminte si va primi o jucarie.\n";
+    Matei.set_dorinta( "masinuta" );
+    Matei.get_name();    cout << " isi doreste o ";  Matei.get_dorinta();    cout << ".\n";
+
+    toy masinuta;
+    masinuta.set_new_toy("masinuta", "plastic", 3 );
+
+    Matei.show_child_and_toy(masinuta );
+
+}
+
 void delimitator(){
     cout << "****************************************\n";       ///delimitator
 }
@@ -34,7 +62,7 @@ void copilul_primeste_o_noua_jucarie( child &copil, toy &juc ){
 
 int main(){
 
-    child Bogdan, Catalin;
+   /* child Bogdan, Catalin;
     toy dinozaur, soldat;
 
     ///aici e mostenirea intre toy si child
@@ -62,7 +90,27 @@ int main(){
         Bogdan.primeste_de_Craciun_cadou.push("hainute");
         Bogdan.primeste_de_Craciun_cadou.show();
     }
-    else ;
+    else ;*/
+
+   ///pana la <<mos3.show>> am facut copy con, atribuire = si citire cu operator
+    Mos_Craciun mos1;
+    mos1.push("papusa");
+    mos1.push("masinuta");
+    ///cout << mos1;        aici imi da eroare si nu inteleg dc/// Mos_Craciun.h
+    mos1.show();
+    /*cout << "\n";
+    mos2 = mos1;
+    mos2.show();
+    cout << "\nUrmeaza mos3\n1";
+    Mos_Craciun mos3( mos1);
+    mos3.show();*/
+
+    ///aici si in functia mostenire lucrez cu mosteniri
+    copilbun Matei;
+    Matei.set_new_child( "Matei", 5, 1 );
+    if( Matei.get_a_fost_cuminte() )
+        mostenire( Matei );
+
     return 0;
 }
 
