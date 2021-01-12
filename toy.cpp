@@ -13,3 +13,7 @@ void toy::set_new_toy(string newtoy, string newmaterial, int newagelimit) {
     material = newmaterial;
     age_limit = newagelimit;
 }
+
+void toy::get_the_toy() {
+    cout << "un/o" << nume << " de " << material << " pentru copii de peste " << age_limit << " ani.\n";
+}
