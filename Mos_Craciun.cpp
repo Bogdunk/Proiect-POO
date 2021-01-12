@@ -1,8 +1,6 @@
 #include "Mos_Craciun.h"
-#include "toy.h"
 #include <iostream>
 #include <string>
-#include <vector>
 
 /// stiu ca am in STL <stack>
 /// am vrut sa implementez eu o stiva, ai mult pentru exercitiu
@@ -11,6 +9,17 @@ void Mos_Craciun::init(){
     vf = 0;
     cout << "Spuneti cate jucarii sa aduca Mos Craciun->\n";
     cin >> SIZE;
+}
+
+Mos_Craciun::Mos_Craciun(){
+    vf = 0;
+    SIZE = 0;
+    init();
+}
+
+Mos_Craciun::Mos_Craciun( const Mos_Craciun &Mos ) {
+    SIZE = Mos.SIZE;
+    vf = Mos.vf;
 }
 
 void Mos_Craciun::push( string str ) {
@@ -47,5 +56,6 @@ void Mos_Craciun::show() {
                 contor--;
             }
         }
+        cout <<"\n";
     }
 }
