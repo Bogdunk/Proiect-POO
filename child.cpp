@@ -8,7 +8,7 @@ child::child(){
     a_fost_cuminte = 1;
 }
 
-void child::get_new_child(string name, int ages, bool cuminte) {
+void child::set_new_child(string name, int ages, bool cuminte) {
     child_name = name;
     age = ages;
     a_fost_cuminte = cuminte;
