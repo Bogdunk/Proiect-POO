@@ -1,12 +1,13 @@
 #include "toy.h"
 #include "child.h"
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
 ///mostenire pt tema 2
 class copilbun: public child{
-    string dorinta; ///in string memoreaza numele jucariei pe care si-o doreste
+    string dorinta;                                     ///in string memoreaza numele jucariei pe care si-o doreste
 public:
     copilbun(){
         this->dorinta = "-";
@@ -19,6 +20,30 @@ public:
     }
 };
 
+///aici am creat builderul
+class CopilBunBuilder{
+    copilbun copil;
+public:
+    CopilBunBuilder& dorinta( string dor ){
+        copil.set_dorinta( dor );
+        return *this;
+    }
+    CopilBunBuilder& copil_bun_nou( string nume, int ani ){
+        copil.set_new_child(nume, ani, 1);
+        return *this;
+    }
+    copilbun build(){
+        return copil;
+    }
+};
+
+/// si aici am facut o functie speciala pt a lucra cu buiderul
+void builder_copil_bun( copilbun Mihai ){
+    CopilBunBuilder c;
+    Mihai = c.copil_bun_nou("Mihai",17).dorinta("playstation 4").build();
+    Mihai.get_name();   cout << " isi doreste sa primeasca un/o ";   Mihai.get_dorinta();
+}
+
 void mostenire( copilbun Matei  ){
 
     Matei.get_name();    cout << " a fost cuminte si va primi o jucarie.\n";
@@ -29,7 +54,6 @@ void mostenire( copilbun Matei  ){
     masinuta.set_new_toy("masinuta", "plastic", 3 );
 
     Matei.show_child_and_toy(masinuta );
-
 }
 
 void delimitator(){
@@ -93,11 +117,12 @@ int main(){
     else ;*/
 
    ///pana la <<mos3.show>> am facut copy con, atribuire = si citire cu operator
-    Mos_Craciun mos1;
-    mos1.push("papusa");
-    mos1.push("masinuta");
+    //Mos_Craciun mos1;
+    //mos1.push("papusa");
+    //mos1.push("masinuta");
     ///cout << mos1;        aici imi da eroare si nu inteleg dc/// Mos_Craciun.h
-    mos1.show();
+    //mos1.show();
+    //------------------------------------
     /*cout << "\n";
     mos2 = mos1;
     mos2.show();
@@ -107,10 +132,12 @@ int main(){
 
     ///aici si in functia mostenire lucrez cu mosteniri
     copilbun Matei;
-    Matei.set_new_child( "Matei", 5, 1 );
+    /*Matei.set_new_child( "Matei", 5, 1 );
     if( Matei.get_a_fost_cuminte() )
         mostenire( Matei );
+    */
 
+    builder_copil_bun(Matei);   ///apelez functia cu builderul( scris la linia 40)
     return 0;
 }
 
